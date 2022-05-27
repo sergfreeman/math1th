@@ -1,0 +1,243 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid red; */
+    box-sizing: border-box;
+}
+
+.wrapper{
+    background: repeating-linear-gradient(0grad, transparent 0 29px, blue 30px 30px), 
+    repeating-linear-gradient(to right, transparent 0 29px, blue 30px 30px);
+    /* background-attachment: local; */
+    /* background-repeat: no-repeat; */
+    background-position: center ;
+    background-attachment: local;
+    display: flex;
+    position: relative;
+}
+
+/* ASIDE start */
+.aside{
+    width: 360px;
+    display: block;
+    height: auto;
+}
+
+.logo{
+    display: block;
+    height: auto;
+    background-color: blue;
+    color: white;
+    font-family: mathRegularFont;
+    font-style: normal;
+    text-align: center;
+    margin-bottom: 30px;
+    
+}
+
+.logo>h1{
+    padding: 10px 10px 0px 10px;
+    font-size: 75px;
+}
+
+.logo>h2{
+    padding: 0px 10px 10px 10px;
+    /* font-size: 75px; */
+}
+
+.authentification{
+    display: block;
+    
+    
+}
+
+.authent-form{
+    display: block;
+    /* flex-direction: column;
+    flex-wrap: wrap; */
+    /* padding: 5px 0; */
+    background-color: blue;
+    color: white;
+    font-family: mathRegularFont;
+    font-style: normal;
+    font-size: 20px;
+    text-align: center;
+    justify-content: center;
+    padding: 10px;
+    /* margin: 10px 10px; */
+}
+
+/* fieldset{
+    margin: 1px;
+} */
+
+.student-name,
+.teacher-email
+{
+    width: 300px;
+    height: auto;
+    padding: 5px;
+    margin: 5px;
+}
+
+.student-name:hover,
+.teacher-email:hover
+{
+    box-shadow: 0 0 12px black;
+}
+
+.labelForCheckBox{
+    display: block;
+    text-align: center;
+    /* flex-wrap: nowrap; */
+    width: auto;
+    height: auto;
+    /* padding: 5px 0 0; */
+    /* float:start; */
+    align-items: center;
+    /* margin-left: 15px; */
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.actions{
+    padding-top: 20px;
+    padding-bottom: 30px;
+    /* padding-top: 10px; */
+}
+
+ul{
+    font-family: mathRegularFont;
+    font-size: 30px;
+    line-height: 30px;
+}
+
+li{
+    height: 30px;
+    font-size: 30px;
+    padding-left: 20px;
+    line-height: 30px;
+    
+}
+
+
+a{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.705);
+}
+
+a:hover{
+    color: rgb(0, 0, 0);
+    font-weight: bolder;
+}
+
+.rubricator{
+    width: auto;
+    color: blue;
+    text-align: center;
+    font-weight: bolder;
+    margin-top: 30px;
+}
+
+.sub-rubricator{
+    margin-left: 30px;
+    margin-top: 30px;
+    font-weight: bold;
+    text-align: left;
+    list-style: none;
+}
+
+
+/* ASIDE finish */
+
+
+/* CONTENT start */
+
+.content{
+    /* border: 2px solid forestgreen; */
+    width: calc(100% - 360px);
+    min-width: 360px;
+    font-size: 30px;
+    line-height: 30px;
+    padding: 20px;
+    border-left: 2px solid red;
+    align-items: center;
+    text-align: center;
+    display: block;
+}
+
+.example0{
+    margin: 0;
+    padding: 0;
+}
+
+.example{
+    /* display: block; */
+    width: auto;
+    height: 30px;
+    margin-top: 30px;
+    word-wrap: break-word;
+}
+/* CONTENT finish */
+
+
+
+
+/* FOOTER start */
+footer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-family: mathLightFont;
+    font-weight: bolder;
+    background-color: blue;
+    color: white;
+}
+
+.author-contact{
+    text-align: center;
+    margin: 5px 30px;
+    padding: 5px;
+    background-color: white;
+    border: 3px double black;
+}
+
+.author-info,
+.address{
+    width: auto;
+    text-align: center;
+    margin: 5px;
+}
+
+/* .address{
+    width: 360px;
+} */
+/* FOOTER finish */
+
+
+@font-face {
+    font-family: mathLightFont;
+    src: url('../fonts/YanoneKaffeesatz-Light.ttf');
+}
+
+@font-face {
+    font-family: mathRegularFont;
+    src: url('../fonts/YanoneKaffeesatz-Regular.ttf');
+}
+
+@media screen and (max-width: 550px) {
+    footer{
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 740px) {
+    .content{
+        display: none;
+    }
+    .aside{
+        width: 100%;
+    }
+}
