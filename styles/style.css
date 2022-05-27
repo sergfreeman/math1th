@@ -6,10 +6,8 @@
 }
 
 .wrapper{
-    background: repeating-linear-gradient(0grad, transparent 0 29px, blue 30px 30px), 
-    repeating-linear-gradient(to right, transparent 0 29px, blue 30px 30px);
-    /* background-attachment: local; */
-    /* background-repeat: no-repeat; */
+    background: repeating-linear-gradient(0grad, transparent 0 29px, rgba(0, 0, 255, 0.5) 30px 30px), 
+    repeating-linear-gradient(to right, transparent 0 29px, rgba(0, 0, 255, 0.5) 30px 30px);
     background-position: center ;
     background-attachment: local;
     display: flex;

@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+}
+
+.wrapper{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background-color: blue;
+    font-size: 5vw;
+    
+}
+div{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.container{
+    display: block;
+    width: 65%;
+    margin: auto;
+    /* padding: 2%; */
+    background-color: white;
+    border-radius: 5px;
+    border: 5px double grey;
+    font-size: 2.5vw;
+    
+}
+
+form{
+    margin: 1vw;
+    background-attachment:local;
+    background: repeating-linear-gradient(0grad, transparent 0 5vw, rgba(0, 0, 255, 0.4) 5.2vw 5.2vw), 
+    repeating-linear-gradient(to right, transparent 0 5vw, rgba(0, 0, 255, 0.4) 5.2vw 5.2vw);
+}
+
+fieldset{
+    padding: 3vw;
+}
+
+.label-tasc-one{
+    display: inline-block;
+    font-size: 5vw;
+    width: fit-content;
+    padding: 2% 0 2% 0px;
+    text-align: right;
+}
+
+.answer{
+    width: calc(10vw*2);
+    height: 5vw;
+    padding: 2% 0 2% 0px;
+    font-size: 5vw;
+    margin: 1vw;
+    background-color: transparent;
+}
+
+button{
+    width: fit-content;
+    font-size: 2.5vw;
+    padding: 0.5vw;
+    margin-top: 2vw;
+    
+}
