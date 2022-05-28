@@ -8,7 +8,7 @@ window.onload = function () {
         // alert(element.className);
         element.addEventListener('click', function(){
             let nameOfFile = String(element.className) + '.html';
-            window.open(nameOfFile, "_blank");
+            window.open(`./${nameOfFile}`, "_blank");
       
         })
         
