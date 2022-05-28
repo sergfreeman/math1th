@@ -2,7 +2,7 @@
 let taskType, login, password;
 
 window.onload = function () {
-    alert('start');
+    // alert('start');
     let menuOptions = document.querySelectorAll('a');
     menuOptions.forEach(element => {
         // alert(element.className);
