@@ -8,7 +8,8 @@ window.onload = function () {
         // alert(element.className);
         element.addEventListener('click', function(){
             let nameOfFile = String(element.className) + '.html';
-            window.open(`./${nameOfFile}`, "_blank");
+            // window.open(`./${nameOfFile}`, "_blank");
+            window.open(`./two_additions_till10.html`, "_blank");
       
         })
         
