@@ -1,18 +1,23 @@
-// import {two_additions_till10} from './arithmetic.js'
-let taskType, login, password;
+var teacherEmail, studentName, password;
+export let expStudentName = studentName;
 
-window.onload = function () {
-    // alert('start');
-    let menuOptions = document.querySelectorAll('a');
-    menuOptions.forEach(element => {
-        // alert(element.className);
-        element.addEventListener('click', function(){
-            let nameOfFile = String(element.className) + '.html';
-            window.open(`./${nameOfFile}`, "_blank");
-            // window.open(`./two_additions_till10.html`, "_blank");
-      
-        })
-        
-    });
+let menuOptions = document.querySelectorAll('a');
+menuOptions.forEach(element => {
+    element.addEventListener('click', function () {
+        let nameOfFile = String(element.className) + '.html';
+        window.open(`./${nameOfFile}`, "_blank");
+    })
+});
+
+
+let studentNameField = document.querySelector('.student-name');
+studentNameField.addEventListener('change', set_student_name);
+
+function set_student_name() {
+
+    studentName = studentNameField.value;
+    // export var expStudentName = studentName ;
+    alert(expStudentName);
+
 }
 

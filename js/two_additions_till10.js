@@ -1,9 +1,12 @@
 // import {taskType} from './index';
-import { randomizer } from './random.js'
+import { randomizer } from './random.js';
+// import { expStudentName } from './index.js';
+import { tmp } from './index.js';
 // window.onloadstart = function () {
 //     alert('start');
 // }
 
+// alert(expStudentName);
 
 let firstValue;
 let secondValue;
