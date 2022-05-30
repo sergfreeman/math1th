@@ -1,12 +1,9 @@
-// import {taskType} from './index';
+// import  { studentName }  from './index.js';
 import { randomizer } from './random.js';
-// import { expStudentName } from './index.js';
-import { tmp } from './index.js';
-// window.onloadstart = function () {
-//     alert('start');
-// }
+import { yearIs, monthIs, dateIs, hoursIs, minutesIs, secondsIs } from './get_current_time.js';
 
-// alert(expStudentName);
+
+// alert(test);
 
 let firstValue;
 let secondValue;
@@ -17,15 +14,36 @@ let score = 0;
 let attemptCounter = document.querySelector('span');
 let taskField = document.querySelector('.label-tasc-one');
 let answer = document.querySelector('.answer');
+let resultReport = document.querySelector('.resultReport');
+
+
+
+//response params (name and email) from index.html
+const urlParams = new URLSearchParams(window.location.search);
+const nameParam = urlParams.get('name');
+
+
+window.addEventListener("load", function() {
+    resultReport.value = `  Учень: ${nameParam} \n`;
+    resultReport.value = resultReport.value + `- початоку уроку (`;
+    resultReport.value += `[${yearIs}:${monthIs}:${dateIs}] [${hoursIs}:${minutesIs}:${secondsIs}]) -`;
+  });
+
+//finish
+
+
+
+
+
+
+
 
 document.onkeydown = function (event) {
     if (event.key == 'Enter') {
-        // event.preventDefault();
+        
         event.preventDefault();
         checkTask();
         setTask();
-
-        // event.stopPropagation();
     }
 }
 
