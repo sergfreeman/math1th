@@ -85,9 +85,11 @@ button{
     margin:auto ;
     padding: 2vw;
     font-size: 2.4vw;
+    
     background-color: blue;
     color: white;
     border-radius: 5px;
     border: 5px double grey;
+    
     
 }

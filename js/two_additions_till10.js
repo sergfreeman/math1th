@@ -17,7 +17,7 @@ let answer = document.querySelector('.answer');
 const urlParams = new URLSearchParams(window.location.search);
 const nameParam = urlParams.get('name');
 
-//create Report on load page
+//create totalReport array on load page
 window.addEventListener("load", function () {
     totalReport.push(`  Учень: ${nameParam} \n`);
     totalReport.push
@@ -40,14 +40,13 @@ setTask();
 button.addEventListener('click', function () {
     checkTask();
     setTask();
-
 });
 
 
 
 //create task value like as: ` 1 + 5 = `
 function setTask() {
-    
+
     attemptCounter.innerHTML = attempt;
     attempt++;
     answer.value = '';
@@ -59,6 +58,7 @@ function setTask() {
     taskField.innerHTML = `${firstValue} + ${secondValue} =`;
 
 }
+
 //check on correct answer value, write check report
 function checkTask() {
     if (result == answer.value) {
@@ -66,27 +66,35 @@ function checkTask() {
         score++;
     } else {
         totalReport.push(`      ${taskField.innerHTML} ${answer.value} : помилка, має бути (${result})\n`);
-    };
+    }
 
 
     if (attempt > 10) {
         totalReport.push(`- кінець уроку ([${(currentYear(new Date()))}:${currentMonth(new Date())}:${currentDate(new Date())}] [${currentHour(new Date())}:${currentMinute(new Date())}:${currentSecond(new Date())}]) - \n`);
         totalReport.push(`      Оцінка: ${score} балів.`);
         document.querySelector('.wrapper').remove();
+
+
+        //Create DOM obj <textarea> for totalReport visualisation
         let reportArea = document.createElement('textarea');
         reportArea.className = 'reportAreaClass';
         reportArea.rows = '14';
+        reportArea.readOnly = 'true';
+        
         for (let row of totalReport) {
             reportArea.innerHTML += row;
         }
-
         document.body.appendChild(reportArea);
-        
-        document.body.addEventListener('click', function(){window.close();})
-        window.onkeydown = function(event){
-            if (event.key == 'Escape') window.close();
-        }
-        
+
+        //EXIT
+        pointOfExit();
     }
 }
 
+//Exiting need 'mouse click' or pressing keyboard button 'Escape'
+function pointOfExit() {
+    document.body.addEventListener('click', function () { window.close(); })
+    window.onkeydown = function (event) {
+        if (event.key == 'Escape') window.close();
+    }
+}
