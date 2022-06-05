@@ -62,6 +62,13 @@ function setTask() {
     
         case 'several_additions_till10': several_additions_till10(); break
         case 'several_additions_till100': several_additions_till100(); break
+
+        case 'two_substraction_till10': two_substraction_till10(); break
+        case 'two_substraction_till100':two_substraction_till100(); break
+    
+        case 'several_substraction_till10': several_substraction_till10(); break
+        case 'several_substraction_till100': several_substraction_till100(); break
+        
     }
 
     
@@ -142,4 +149,42 @@ function several_additions_till100(){
     thirdValue = randomizer(0, 100 - firstValue - secondValue);
     result = firstValue + secondValue + thirdValue;
     taskField.innerHTML = `${firstValue} + ${secondValue} + ${thirdValue} =`;
+}
+
+
+
+
+
+//create task value like as: ` 8 - 5 = `
+function two_substraction_till10(){
+    firstValue = randomizer(0, 10);
+    secondValue = randomizer(0, firstValue);
+    result = firstValue - secondValue;
+    taskField.innerHTML = `${firstValue} - ${secondValue} =`;
+}
+
+//create task value like as: ` 33 - 12 = `
+function two_substraction_till100(){
+    firstValue = randomizer(0, 100);
+    secondValue = randomizer(0, firstValue);
+    result = firstValue - secondValue;
+    taskField.innerHTML = `${firstValue} - ${secondValue} =`;
+}
+
+//create task value like as: ` 10 + 5 - 2 = `
+function several_substraction_till10(){
+    firstValue = randomizer(0, 10);
+    secondValue = randomizer(0, 10 - firstValue);
+    thirdValue = randomizer(0, firstValue + secondValue);
+    result = firstValue + secondValue - thirdValue;
+    taskField.innerHTML = `${firstValue} + ${secondValue} - ${thirdValue} =`;
+}
+
+//create task value like as: ` 17 + 55 - 12 = `
+function several_substraction_till100(){
+    firstValue = randomizer(0, 100);
+    secondValue = randomizer(0, 100 - firstValue);
+    thirdValue = randomizer(0, 100 - firstValue - secondValue);
+    result = firstValue + secondValue - thirdValue;
+    taskField.innerHTML = `${firstValue} + ${secondValue} - ${thirdValue} =`;
 }
