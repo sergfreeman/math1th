@@ -69,6 +69,8 @@ function setTask() {
         case 'several_substraction_till10': several_substraction_till10(); break
         case 'several_substraction_till100': several_substraction_till100(); break
         
+        case 'several_combination_till10': several_combination_till10(); break
+        case 'several_combination_till100': several_combination_till100(); break
     }
 
     
@@ -87,7 +89,7 @@ function checkTask() {
 
     if (attempt > 10) {
         totalReport.push(`- кінець уроку ([${(currentYear(new Date()))}:${currentMonth(new Date())}:${currentDate(new Date())}] [${currentHour(new Date())}:${currentMinute(new Date())}:${currentSecond(new Date())}]) - \n`);
-        totalReport.push(`      Оцінка: ${score} балів.`);
+        totalReport.push(`      Оцінка(максимум 10 балів): ${score} балів.`);
         document.querySelector('.wrapper').remove();
 
 
@@ -151,10 +153,6 @@ function several_additions_till100(){
     taskField.innerHTML = `${firstValue} + ${secondValue} + ${thirdValue} =`;
 }
 
-
-
-
-
 //create task value like as: ` 8 - 5 = `
 function two_substraction_till10(){
     firstValue = randomizer(0, 10);
@@ -171,8 +169,26 @@ function two_substraction_till100(){
     taskField.innerHTML = `${firstValue} - ${secondValue} =`;
 }
 
-//create task value like as: ` 10 + 5 - 2 = `
+//create task value like as: ` 10 - 5 - 2 = `
 function several_substraction_till10(){
+    firstValue = randomizer(0, 10);
+    secondValue = randomizer(0, firstValue);
+    thirdValue = randomizer(0, firstValue - secondValue);
+    result = firstValue - secondValue - thirdValue;
+    taskField.innerHTML = `${firstValue} - ${secondValue} - ${thirdValue} =`;
+}
+
+//create task value like as: ` 17 - 5 - 12 = `
+function several_substraction_till100(){
+    firstValue = randomizer(0, 100);
+    secondValue = randomizer(0, firstValue);
+    thirdValue = randomizer(0, firstValue - secondValue);
+    result = firstValue - secondValue - thirdValue;
+    taskField.innerHTML = `${firstValue} - ${secondValue} - ${thirdValue} =`;
+}
+
+//create task value like as: ` 10 + 5 - 2 = `
+function several_combination_till10(){
     firstValue = randomizer(0, 10);
     secondValue = randomizer(0, 10 - firstValue);
     thirdValue = randomizer(0, firstValue + secondValue);
@@ -181,10 +197,10 @@ function several_substraction_till10(){
 }
 
 //create task value like as: ` 17 + 55 - 12 = `
-function several_substraction_till100(){
+function several_combination_till100(){
     firstValue = randomizer(0, 100);
     secondValue = randomizer(0, 100 - firstValue);
-    thirdValue = randomizer(0, 100 - firstValue - secondValue);
+    thirdValue = randomizer(0, firstValue + secondValue);
     result = firstValue + secondValue - thirdValue;
     taskField.innerHTML = `${firstValue} + ${secondValue} - ${thirdValue} =`;
 }
