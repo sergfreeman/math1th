@@ -6,11 +6,13 @@ let firstValue;
 let secondValue;
 let thirdValue;
 let result;
+
 let attempt = 1;
 let totalReport = [];
 let score = 0;
 
-let attemptCounter = document.querySelector('span');
+let legend = document.querySelector('legend');
+// let attemptCounter = document.querySelector('span');
 let taskField = document.querySelector('.label-tasc-one');
 let answer = document.querySelector('.answer');
 
@@ -50,7 +52,7 @@ button.addEventListener('click', function () {
 //create task value like as: ` 1 + 5 = `
 function setTask() {
 
-    attemptCounter.innerHTML = attempt;
+    // attemptCounter.innerHTML = attempt;
     attempt++;
     answer.value = '';
     answer.focus();
@@ -125,6 +127,7 @@ function two_additions_till10(){
     secondValue = randomizer(0, 10 - firstValue);
     result = firstValue + secondValue;
     taskField.innerHTML = `${firstValue} + ${secondValue} =`;
+    legend.innerHTML = `Додавання двох чисел у межах 10 (завдання№ ${attempt - 1})`;
 }
 
 //create task value like as: ` 17 + 55 = `
@@ -133,6 +136,7 @@ function two_additions_till100(){
     secondValue = randomizer(0, 100 - firstValue);
     result = firstValue + secondValue;
     taskField.innerHTML = `${firstValue} + ${secondValue} =`;
+    legend.innerHTML = `Додавання двох чисел у межах 100 (завдання№ ${attempt - 1})`;
 }
 
 //create task value like as: ` 1 + 5 + 2 = `
@@ -142,6 +146,7 @@ function several_additions_till10(){
     thirdValue = randomizer(0, 10 - firstValue - secondValue);
     result = firstValue + secondValue + thirdValue;
     taskField.innerHTML = `${firstValue} + ${secondValue} + ${thirdValue} =`;
+    legend.innerHTML = `Додавання кількох чисел у межах 10 (завдання№ ${attempt - 1})`;
 }
 
 //create task value like as: ` 17 + 55 + 12 = `
@@ -151,6 +156,7 @@ function several_additions_till100(){
     thirdValue = randomizer(0, 100 - firstValue - secondValue);
     result = firstValue + secondValue + thirdValue;
     taskField.innerHTML = `${firstValue} + ${secondValue} + ${thirdValue} =`;
+    legend.innerHTML = `Додавання кількох чисел у межах 100 (завдання№ ${attempt - 1})`;
 }
 
 //create task value like as: ` 8 - 5 = `
@@ -159,6 +165,7 @@ function two_substraction_till10(){
     secondValue = randomizer(0, firstValue);
     result = firstValue - secondValue;
     taskField.innerHTML = `${firstValue} - ${secondValue} =`;
+    legend.innerHTML = `Віднімання чисел у межах 10 (завдання№ ${attempt - 1})`;
 }
 
 //create task value like as: ` 33 - 12 = `
@@ -167,6 +174,7 @@ function two_substraction_till100(){
     secondValue = randomizer(0, firstValue);
     result = firstValue - secondValue;
     taskField.innerHTML = `${firstValue} - ${secondValue} =`;
+    legend.innerHTML = `Віднімання чисел у межах 100 (завдання№ ${attempt - 1})`;
 }
 
 //create task value like as: ` 10 - 5 - 2 = `
@@ -176,6 +184,7 @@ function several_substraction_till10(){
     thirdValue = randomizer(0, firstValue - secondValue);
     result = firstValue - secondValue - thirdValue;
     taskField.innerHTML = `${firstValue} - ${secondValue} - ${thirdValue} =`;
+    legend.innerHTML = `Віднімання кількох чисел у межах 10 (завдання№ ${attempt - 1})`;
 }
 
 //create task value like as: ` 17 - 5 - 12 = `
@@ -185,6 +194,7 @@ function several_substraction_till100(){
     thirdValue = randomizer(0, firstValue - secondValue);
     result = firstValue - secondValue - thirdValue;
     taskField.innerHTML = `${firstValue} - ${secondValue} - ${thirdValue} =`;
+    legend.innerHTML = `Віднімання кількох чисел у межах 100 (завдання№ ${attempt - 1})`;
 }
 
 //create task value like as: ` 10 + 5 - 2 = `
@@ -194,6 +204,7 @@ function several_combination_till10(){
     thirdValue = randomizer(0, firstValue + secondValue);
     result = firstValue + secondValue - thirdValue;
     taskField.innerHTML = `${firstValue} + ${secondValue} - ${thirdValue} =`;
+    legend.innerHTML = `Додавання та віднімання кількох чисел у межах 10 (завдання№ ${attempt - 1})`;
 }
 
 //create task value like as: ` 17 + 55 - 12 = `
@@ -203,4 +214,5 @@ function several_combination_till100(){
     thirdValue = randomizer(0, firstValue + secondValue);
     result = firstValue + secondValue - thirdValue;
     taskField.innerHTML = `${firstValue} + ${secondValue} - ${thirdValue} =`;
+    legend.innerHTML = `Додавання та віднімання кількох чисел у межах 100 (завдання№ ${attempt - 1})`;
 }
