@@ -22,17 +22,19 @@ let menuOptions = document.querySelectorAll('a');
 menuOptions.forEach(element => {
 
     element.addEventListener('click', function () {
+        let taskType = element.className;
         var nameOfFile;
         if (formCheckboxIsCHECK.checked) {
             inputNameParam.disabled = true;
             let getNameParam = inputNameParam.value;
             let getEmailParam = inputEmailParam.value;
-            nameOfFile = String(element.className) + '.html?name=' + getNameParam + '&email=' + getEmailParam;
+            // nameOfFile = String(element.className) + '.html?name=' + getNameParam + '&email=' + getEmailParam;
+            nameOfFile = `./tasks.html?taskType=${taskType}&name=${getNameParam}&email=${getEmailParam}`;
         } else {
-            nameOfFile = String(element.className) + '.html';
+            nameOfFile = `./tasks.html?taskType=${taskType}`;
         }
         
-        window.open(`./${nameOfFile}`, "_blank");
+        window.open(`${nameOfFile}`, "_blank");
 
     })
 });

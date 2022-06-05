@@ -4,6 +4,7 @@ import { currentYear, currentMonth, currentDate, currentHour, currentMinute, cur
 
 let firstValue;
 let secondValue;
+let thirdValue;
 let result;
 let attempt = 1;
 let totalReport = [];
@@ -15,11 +16,13 @@ let answer = document.querySelector('.answer');
 
 //response params (name and email) from index.html
 const urlParams = new URLSearchParams(window.location.search);
-const nameParam = urlParams.get('name');
+const taskType = urlParams.get('taskType');
+const name = urlParams.get('name');
+const email = urlParams.get('email');
 
 //create totalReport array on load page
 window.addEventListener("load", function () {
-    totalReport.push(`  Учень: ${nameParam} \n`);
+    totalReport.push(`  Учень: ${name} \n`);
     totalReport.push
         (`- початок уроку ([${(currentYear(new Date()))}:${currentMonth(new Date())}:${currentDate(new Date())}] [${currentHour(new Date())}:${currentMinute(new Date())}:${currentSecond(new Date())}]) - \n`);
 });
@@ -52,10 +55,16 @@ function setTask() {
     answer.value = '';
     answer.focus();
 
-    firstValue = randomizer(0, 10);
-    secondValue = randomizer(0, 10 - firstValue);
-    result = firstValue + secondValue;
-    taskField.innerHTML = `${firstValue} + ${secondValue} =`;
+    switch (taskType) {
+
+        case 'two_additions_till10': two_additions_till10(); break
+        case 'two_additions_till100': two_additions_till100(); break
+    
+        case 'several_additions_till10': several_additions_till10(); break
+        case 'several_additions_till100': several_additions_till100(); break
+    }
+
+    
 
 }
 
@@ -80,7 +89,7 @@ function checkTask() {
         reportArea.className = 'reportAreaClass';
         reportArea.rows = '14';
         reportArea.readOnly = 'true';
-        
+
         for (let row of totalReport) {
             reportArea.innerHTML += row;
         }
@@ -97,4 +106,40 @@ function pointOfExit() {
     window.onkeydown = function (event) {
         if (event.key == 'Escape') window.close();
     }
+}
+
+//--------------------EXERCISE PART start--------------------
+
+//create task value like as: ` 1 + 5 = `
+function two_additions_till10(){
+    firstValue = randomizer(0, 10);
+    secondValue = randomizer(0, 10 - firstValue);
+    result = firstValue + secondValue;
+    taskField.innerHTML = `${firstValue} + ${secondValue} =`;
+}
+
+//create task value like as: ` 17 + 55 = `
+function two_additions_till100(){
+    firstValue = randomizer(0, 100);
+    secondValue = randomizer(0, 100 - firstValue);
+    result = firstValue + secondValue;
+    taskField.innerHTML = `${firstValue} + ${secondValue} =`;
+}
+
+//create task value like as: ` 1 + 5 + 2 = `
+function several_additions_till10(){
+    firstValue = randomizer(0, 10);
+    secondValue = randomizer(0, 10 - firstValue);
+    thirdValue = randomizer(0, 10 - firstValue - secondValue);
+    result = firstValue + secondValue + thirdValue;
+    taskField.innerHTML = `${firstValue} + ${secondValue} + ${thirdValue} =`;
+}
+
+//create task value like as: ` 17 + 55 + 12 = `
+function several_additions_till100(){
+    firstValue = randomizer(0, 100);
+    secondValue = randomizer(0, 100 - firstValue);
+    thirdValue = randomizer(0, 100 - firstValue - secondValue);
+    result = firstValue + secondValue + thirdValue;
+    taskField.innerHTML = `${firstValue} + ${secondValue} + ${thirdValue} =`;
 }
