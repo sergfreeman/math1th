@@ -52,11 +52,12 @@ button.addEventListener('click', function () {
 //create task value like as: ` 1 + 5 = `
 function setTask() {
 
-    // attemptCounter.innerHTML = attempt;
+    
     attempt++;
     answer.value = '';
     answer.focus();
-
+    
+    
     switch (taskType) {
 
         case 'two_additions_till10': two_additions_till10(); break
@@ -91,7 +92,7 @@ function checkTask() {
 
     if (attempt > 10) {
         totalReport.push(`- кінець уроку ([${(currentYear(new Date()))}:${currentMonth(new Date())}:${currentDate(new Date())}] [${currentHour(new Date())}:${currentMinute(new Date())}:${currentSecond(new Date())}]) - \n`);
-        totalReport.push(`      Оцінка(максимум 10 балів): ${score} балів.`);
+        totalReport.push(`      Оцінка(максимум 10 балів): ${score}.`);
         document.querySelector('.wrapper').remove();
 
 
@@ -113,7 +114,11 @@ function checkTask() {
 
 //Exiting need 'mouse click' or pressing keyboard button 'Escape'
 function pointOfExit() {
-    document.body.addEventListener('click', function () { window.close(); })
+    // document.body.addEventListener('click', function () { window.close(); })
+    
+    window.onmousedown = function() {
+        window.close(); 
+    }
     window.onkeydown = function (event) {
         if (event.key == 'Escape') window.close();
     }
@@ -216,3 +221,7 @@ function several_combination_till100(){
     taskField.innerHTML = `${firstValue} + ${secondValue} - ${thirdValue} =`;
     legend.innerHTML = `Додавання та віднімання кількох чисел у межах 100 (завдання№ ${attempt - 1})`;
 }
+
+
+
+//--------------------EXERCISE PART finish--------------------

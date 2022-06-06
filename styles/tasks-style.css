@@ -54,23 +54,44 @@ fieldset{
     width: fit-content;
     padding: 2% 0 2% 0px;
     text-align: right;
+    font-family: mathRegularFont;
 }
 
 .answer{
     width: calc(8vw*2);
     height: 8vw;
     padding: 2% 0 2% 0px;
+    font-family: mathRegularFont;
     font-size: 8vw;
     margin: 1vw;
     background-color: transparent;
+    
 }
+
+
 
 button{
     width: fit-content;
     font-size: 2.5vw;
     padding: 0.5vw;
     margin-top: 2vw;
+    border: 3px double;
+    font-family: mathLightFont;
+    font-weight: bolder;
+    opacity: .8;
+    background-color: rgba(0, 0, 255, 0.1);
     
+}
+button:hover{
+    opacity: 1;
+    box-shadow: 
+    rgba(0, 0, 0, 0.5) 0 0 10px, 
+    rgba(0, 0, 0, 0.7) 0 0 5px, 
+    rgba(0, 0, 0, 0.95) 0 0 2px;
+    background-color: rgba(0, 0, 255, 1);
+    color: white;
+    font-weight: 900;
+    cursor: pointer;
 }
 
 /* textarea{
@@ -80,11 +101,19 @@ button{
     font-size: 2.5vw;
 } */
 
+legend{
+    font-family: mathRegularFont;
+    font-weight: bolder;
+    opacity: .8;
+}
+
 .reportAreaClass{
     width: 80vw;
     margin:auto ;
     padding: 2vw;
     font-size: 2.4vw;
+    font-family: mathRegularFont;
+    font-weight: 800;
     
     background-color: blue;
     color: white;
@@ -92,4 +121,14 @@ button{
     border: 5px double grey;
     
     
+}
+
+@font-face {
+    font-family: mathLightFont;
+    src: url('../fonts/YanoneKaffeesatz-Light.ttf');
+}
+
+@font-face {
+    font-family: mathRegularFont;
+    src: url('../fonts/YanoneKaffeesatz-Regular.ttf');
 }
