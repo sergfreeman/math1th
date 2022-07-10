@@ -6,6 +6,7 @@ let firstValue;
 let secondValue;
 let thirdValue;
 let result;
+let sign;
 
 let attempt = 1;
 let totalReport = [];
@@ -52,31 +53,33 @@ button.addEventListener('click', function () {
 //create task value like as: ` 1 + 5 = `
 function setTask() {
 
-    
+
     attempt++;
     answer.value = '';
     answer.focus();
-    
-    
+
+
     switch (taskType) {
 
         case 'two_additions_till10': two_additions_till10(); break
         case 'two_additions_till100': two_additions_till100(); break
-    
+
         case 'several_additions_till10': several_additions_till10(); break
         case 'several_additions_till100': several_additions_till100(); break
 
         case 'two_substraction_till10': two_substraction_till10(); break
-        case 'two_substraction_till100':two_substraction_till100(); break
-    
+        case 'two_substraction_till100': two_substraction_till100(); break
+
         case 'several_substraction_till10': several_substraction_till10(); break
         case 'several_substraction_till100': several_substraction_till100(); break
-        
+
         case 'several_combination_till10': several_combination_till10(); break
         case 'several_combination_till100': several_combination_till100(); break
+
+        case 'two_comparison_till100':  two_comparison_till100(); break
     }
 
-    
+
 
 }
 
@@ -115,9 +118,9 @@ function checkTask() {
 //Exiting need 'mouse click' or pressing keyboard button 'Escape'
 function pointOfExit() {
     // document.body.addEventListener('click', function () { window.close(); })
-    
-    window.onmousedown = function() {
-        window.close(); 
+
+    window.onmousedown = function () {
+        window.close();
     }
     window.onkeydown = function (event) {
         if (event.key == 'Escape') window.close();
@@ -127,7 +130,7 @@ function pointOfExit() {
 //--------------------EXERCISE PART start--------------------
 
 //create task value like as: ` 1 + 5 = `
-function two_additions_till10(){
+function two_additions_till10() {
     firstValue = randomizer(0, 10);
     secondValue = randomizer(0, 10 - firstValue);
     result = firstValue + secondValue;
@@ -136,7 +139,7 @@ function two_additions_till10(){
 }
 
 //create task value like as: ` 17 + 55 = `
-function two_additions_till100(){
+function two_additions_till100() {
     firstValue = randomizer(0, 100);
     secondValue = randomizer(0, 100 - firstValue);
     result = firstValue + secondValue;
@@ -145,7 +148,7 @@ function two_additions_till100(){
 }
 
 //create task value like as: ` 1 + 5 + 2 = `
-function several_additions_till10(){
+function several_additions_till10() {
     firstValue = randomizer(0, 10);
     secondValue = randomizer(0, 10 - firstValue);
     thirdValue = randomizer(0, 10 - firstValue - secondValue);
@@ -155,7 +158,7 @@ function several_additions_till10(){
 }
 
 //create task value like as: ` 17 + 55 + 12 = `
-function several_additions_till100(){
+function several_additions_till100() {
     firstValue = randomizer(0, 100);
     secondValue = randomizer(0, 100 - firstValue);
     thirdValue = randomizer(0, 100 - firstValue - secondValue);
@@ -165,7 +168,7 @@ function several_additions_till100(){
 }
 
 //create task value like as: ` 8 - 5 = `
-function two_substraction_till10(){
+function two_substraction_till10() {
     firstValue = randomizer(0, 10);
     secondValue = randomizer(0, firstValue);
     result = firstValue - secondValue;
@@ -174,7 +177,7 @@ function two_substraction_till10(){
 }
 
 //create task value like as: ` 33 - 12 = `
-function two_substraction_till100(){
+function two_substraction_till100() {
     firstValue = randomizer(0, 100);
     secondValue = randomizer(0, firstValue);
     result = firstValue - secondValue;
@@ -183,7 +186,7 @@ function two_substraction_till100(){
 }
 
 //create task value like as: ` 10 - 5 - 2 = `
-function several_substraction_till10(){
+function several_substraction_till10() {
     firstValue = randomizer(0, 10);
     secondValue = randomizer(0, firstValue);
     thirdValue = randomizer(0, firstValue - secondValue);
@@ -193,7 +196,7 @@ function several_substraction_till10(){
 }
 
 //create task value like as: ` 17 - 5 - 12 = `
-function several_substraction_till100(){
+function several_substraction_till100() {
     firstValue = randomizer(0, 100);
     secondValue = randomizer(0, firstValue);
     thirdValue = randomizer(0, firstValue - secondValue);
@@ -203,7 +206,7 @@ function several_substraction_till100(){
 }
 
 //create task value like as: ` 10 + 5 - 2 = `
-function several_combination_till10(){
+function several_combination_till10() {
     firstValue = randomizer(0, 10);
     secondValue = randomizer(0, 10 - firstValue);
     thirdValue = randomizer(0, firstValue + secondValue);
@@ -213,7 +216,7 @@ function several_combination_till10(){
 }
 
 //create task value like as: ` 17 + 55 - 12 = `
-function several_combination_till100(){
+function several_combination_till100() {
     firstValue = randomizer(0, 100);
     secondValue = randomizer(0, 100 - firstValue);
     thirdValue = randomizer(0, firstValue + secondValue);
@@ -222,6 +225,51 @@ function several_combination_till100(){
     legend.innerHTML = `Додавання та віднімання кількох чисел у межах 100 (завдання№ ${attempt - 1})`;
 }
 
+
+//create a logic task value like as: ` 72 > 64 `
+function two_comparison_till100() {
+    // alert('ol');
+    firstValue = randomizer(0, 100);
+    secondValue = randomizer(0, 100);
+    let tmp_choise = randomizer(0,2);
+    legend.innerHTML = `Порівняння двох чисел у межах 100, де - 1 так а 0 - ні(завдання№ ${attempt - 1})`;
+    switch (tmp_choise){
+        case 0: {
+            sign = '<'; 
+            if (firstValue < secondValue){
+                result = 1
+            } else result = 0;
+            break
+        }
+        case 1: {
+            sign = '='; 
+            if (firstValue == secondValue){
+                result = 1
+            } else result = 0;
+            break
+        }
+
+        case 2: {
+            sign = '>'; 
+            if (firstValue > secondValue){
+                result = 1
+            } else result = 0;
+            break
+        }
+    }
+
+    alert(`${firstValue}${sign}${secondValue}`);
+    // if (`${firstValue}${sign}${secondValue}`){
+    //     alert('is ttrue');
+    //     result = 1;
+    // }
+
+    taskField.innerHTML = `${firstValue} ${sign} ${secondValue}`;
+    // if (firstValue > secondValue){
+
+    // }
+
+}
 
 
 //--------------------EXERCISE PART finish--------------------
